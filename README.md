@@ -32,7 +32,7 @@ Enjoy HOME
 
 ## 設計書
 
-ER図　テーブル定義書　ワイヤーフレーム　詳細設計書
+ER図　テーブル定義書　画面遷移図　ワイヤーフレーム　詳細設計書
 https://docs.google.com/spreadsheets/d/1gHmSuyi8qkM5DCSjBbNm-3-9bGI6wdlmVUsoM-cMMoo/edit#gid=2139514103
 
 ## チャレンジ要素一覧
