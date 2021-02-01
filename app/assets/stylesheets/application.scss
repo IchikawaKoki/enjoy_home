@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+main {
+  background-color: #8B4513;
+}
+.content-bg {
+  background-color: #FAFAD2;
+}
+.content-title {
+  background-color: #FAFAD2;
+}
