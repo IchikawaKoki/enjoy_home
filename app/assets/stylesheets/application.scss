@@ -17,12 +17,18 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+.field_with_errors {
+  display: contents;
+}
+
 main {
   background-color: #8B4513;
 }
+
 .content-bg {
   background-color: #FAFAD2;
 }
+
 .content-title {
   background-color: #FAFAD2;
 }
