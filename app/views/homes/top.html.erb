@@ -1,0 +1,38 @@
+<div class = "container-fluid">
+  <div class = "row px-5">
+    <div class = "col-7 top-image">
+    </div>
+    <div class = "col-5 content-bg">
+      <h5 class = "text-center">
+        <strong>Enjoy HOME</strong>では<br />
+        自宅でできる楽しいことやリフレッシュできることを<br />
+        共有することができます
+      </h5>
+      <h5 class = "text-center">
+        さぁ<br />
+        今日も家時間を有意義なものにしましょう
+      </h5>
+      <h6 class = "text-center">
+        まずは新規登録またはログインから
+      </h6>
+      <div class = "d-flex justify-content-center">
+        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-success" %>
+        <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-info" %>
+      </div>
+      <h6 class = "text-center">
+        ゲストログインはこちらから
+      </h6>
+      <div class = "d-flex justify-content-center">
+        <%= link_to "簡単ログイン", '/#', class: "btn btn-outline-primary mx-auto" %>
+      </div>
+    </div>
+  </div>
+  <div class = "row mx-5">
+    <div class = "col-4"></div>
+    <div class = "col-8 content-bg"></div>
+  </div>
+  <div class = "row mx-5">
+    <div class = "col-4"></div>
+    <div class = "col-8 content-bg"></div>
+  </div>
+</div>
