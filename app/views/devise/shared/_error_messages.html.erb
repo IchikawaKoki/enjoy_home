@@ -1,0 +1,10 @@
+<% if resource.errors.any? %>
+  <div id="error_explanation" class = "text-center text-danger">
+    <h4>登録に失敗しました!!</h4>
+    <p>
+      <% resource.errors.full_messages.each do |message| %>
+        <%= message %><br />
+      <% end %>
+    </p>
+  </div>
+<% end %>
