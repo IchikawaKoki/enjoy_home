@@ -1,24 +1,53 @@
-# README
+# アプリ名
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Enjoy HOME
 
-Things you may want to cover:
+## サイト概要
 
-* Ruby version
+家でできる楽しいことやリラックス方法等を投稿し共有できるアプリです。
+昨今では外出自粛により気分が落ち込んでいたり、
+ストレスが溜まってしまっている方が多くいると聞きます。
+このような状況を少しでも緩和できるよう、家でできる楽しいことやリラックス方法を、
+他者の投稿を見て模索・実行し、外出自粛に対するストレス緩和に少しでも貢献できればと思い、
+作成に至りました。
 
-* System dependencies
+### サイトテーマ
 
-* Configuration
+使いやすく楽しいアプリケーション
 
-* Database creation
+### テーマを選んだ理由
 
-* Database initialization
+このアプリは、人々を楽しませることを目的としています。
+そのため、機能面だけではなく、色や動き、レイアウト等の見た目にも注力し、
+使いやすさと同時に、使っていて楽しいものにしたいと思い、上記テーマを選びました。
 
-* How to run the test suite
+### ターゲットユーザ
 
-* Services (job queues, cache servers, search engines, etc.)
+メインターゲットは、長引く外出自粛により気分が落ち込んでしまっていたり、ストレスが溜まっている方々ですが、
+特にストレスは無いけれども単純に家でできることを見つけたいという方々も、サブターゲットとして設定しています。
 
-* Deployment instructions
+### 主な利用シーン
 
-* ...
+在宅時に、何か楽しいことをして気分を盛り上げたりリフレッシュしたい時や、家でできる趣味を見つけたい時。
+
+## 設計書
+
+ER図　テーブル定義書　画面遷移図　ワイヤーフレーム　詳細設計書
+https://docs.google.com/spreadsheets/d/1gHmSuyi8qkM5DCSjBbNm-3-9bGI6wdlmVUsoM-cMMoo/edit#gid=2139514103
+
+## チャレンジ要素一覧
+
+https://docs.google.com/spreadsheets/d/1Wezx2IvYJAvVp4y-Dhq2VUr_O0DvdWttz3fZ1lfvpIQ/edit#gid=0
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+
+  サービス名: photo AC
+  URL: https://www.photo-ac.com
