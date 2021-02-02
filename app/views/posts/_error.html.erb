@@ -1,0 +1,10 @@
+<% if post.errors.any? %>
+  <div id = "post_error" class = "text-center text-danger">
+    <h4>失敗しました!!</h4>
+    <p>
+      <% post.errors.full_messages.each do |message| %>
+        <%= message %><br />
+      <% end %>
+    </p>
+  </div>
+<% end %>

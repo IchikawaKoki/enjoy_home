@@ -68,3 +68,12 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+gem 'kaminari','~> 1.2.1'
+
+gem 'rails-i18n'
+
+gem 'pry-byebug'

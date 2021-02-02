@@ -4,7 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  attachment :profile_image
+
   validates :name, presence: true
+
+  has_many :posts, dependent: :destroy
+
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_books, through: :favorites, source: :post
+
+  has_many :comments, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|

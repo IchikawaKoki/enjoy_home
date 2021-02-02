@@ -1,0 +1,22 @@
+<% lastFavorite = 0 %>
+<% j = 1 %>
+<% ranking.each.with_index(1) do |post, i| %>
+  <div class = "ranking-post">
+    <%= attachment_image_tag post, :image, size: "200x150" %>
+    <% if i == 1 %>
+      <% lastFavorite = post.favorites.count %>
+    <% end %>
+    <% if post.favorites.count != lastFavorite %>
+      <% j = i %>
+      <p>第<%= j %>位</p>
+      <%= post.title %>
+      <p>いいね数:<%= post.favorites.count %></p>
+      <% lastFavorite = post.favorites.count %>
+    <% else %>
+      <% lastFavorite = post.favorites.count %>
+      <p>第<%= j %>位</p>
+      <%= post.title %>
+      <p>いいね数:<%= post.favorites.count %></p>
+    <% end %>
+  </div>
+<% end %>

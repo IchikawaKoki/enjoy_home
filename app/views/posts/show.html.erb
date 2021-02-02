@@ -1,0 +1,42 @@
+<div class = "container">
+  <div class = "row d-flex justify-content-center">
+    <div class = "col-3 content-title">
+      <h3 class = "text-center">投稿詳細</h3>
+    </div>
+  </div>
+  <div class = "row content-bg">
+    <div class = "col-6">
+      <%= attachment_image_tag @post, :image, size: "500x450" %>
+    </div>
+    <div id = "post_<%= @post.id %>" class = "col-6">
+      <h6>タイトル: <%= @post.title %></h6>
+      <h6>説明:</h6>
+      <p><%= @post.description %></p>
+      <p>タグ:
+        <% @post.tags.each do |tag| %>
+          <%= link_to tag.name, tag_search_path(tag.id), class: "btn btn-sm" %>
+        <% end %>
+      </p>
+      <p class = "favorite"><%= render 'favorites/favorite', post: @post %></p>
+      <p class = "comments-count">コメント数:<%= @post.comments.count %></p>
+      <p>投稿日時: <%= @post.created_at.strftime('%Y/%m/%d') %></p>
+      <p>投稿者: <%= @post.user.name %></p>
+      <button>フォローする</button>
+      <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-info" %>
+      <% if @post.user == current_user %>
+        <%= link_to "削除", post_path(@post.id), method: :delete %>
+      <% end %>
+    </div>
+  </div>
+  <div class = "row content-bg">
+    <div class = "comments">
+      <%= render 'comments/comment', post: @post %>
+    </div>
+    <div class = "comment-form">
+      <%= form_with model:[@post, @comment] do |f| %>
+        <%= f.text_area :content, class: "form-control" %>
+        <%= f.submit "送信" %>
+      <% end %>
+    </div>
+  </div>
+</div>

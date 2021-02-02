@@ -1,0 +1,41 @@
+<div class = "container-fluid px-5">
+  <div class = "row d-flex justify-content-center">
+    <div class = "col-3 content-title">
+      <h3 class = "text-center">投稿一覧</h3>
+    </div>
+  </div>
+  <div class = "row">
+    <h5>いいねランキング</h5>
+    <div id = "ranking" class = "d-flex justify-content-center content-bg">
+      <%= render 'posts/ranking', ranking: @ranking %>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-9 content-bg">
+      <h5>全<%= @posts.count %>件</h5>
+      <div class = "d-flex flex-wrap justify-content-center">
+        <% @posts.each do |post| %>
+          <div id = "post_<%= post.id %>">
+            <%= attachment_image_tag post, :image, size: "200x150" %>
+            <p>投稿者  :<%= post.user.name %></p>
+            <p>タイトル:<%= post.title %></p>
+            <p>タグ    :
+              <% post.tags.each do |tag| %>
+                <%= link_to tag.name, tag_search_path(tag.id) %>
+              <% end %>
+            </p>
+            <p class = "favorite"><%= render 'favorites/favorite', post: post %></p>
+            <%= link_to "詳細", post_path(post.id) %>
+          </div>
+        <% end %>
+      </div>
+      <%= paginate @posts %>
+    </div>
+    <div class = "col-3 content-bg">
+      <%= render 'searches/search' %><br>
+      <% @tags.each do |tag| %>
+        <%= link_to tag.name, tag_search_path(tag.id) %>
+      <% end %>
+    </div>
+  </div>
+</div>
