@@ -1,0 +1,2 @@
+$("#post_<%= @post.id %> .favorite").html("<%= j(render 'favorites/favorite', post: @post) %>");
+$("#ranking").html("<%= j(render 'posts/ranking', ranking: @ranking) %>");

@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              blank: "を入力してください!!"
+            description:
+              blank: "を入力してください!!"
+        user:
+          attributes:
+            name:
+              blank: "を入力してください!!"
+    models:
+      post: "投稿"
+      user: "ユーザー情報"
+    attributes:
+      post:
+        title: "タイトル"
+        description: "説明"
+      user:
+        name: "名前"

@@ -1,0 +1,7 @@
+<% post.comments.each do |comment| %>
+  <p>
+    <%= comment.user.name %>:<%= comment.created_at.strftime('%Y/%m/%d') %><br />
+    <%= comment.content %>
+  </p>
+  <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete, remote: true, class: "btn-sm btn-danger" %>
+<% end %>
