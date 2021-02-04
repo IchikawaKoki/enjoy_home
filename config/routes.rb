@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
+  resources :rooms, only: [:create, :index, :show]
+
   get 'search' => 'searches#search', as: "search"
   get 'tags/:id' => 'tags#search', as: "tag_search"
 end
