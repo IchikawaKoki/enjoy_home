@@ -1,0 +1,9 @@
+<% if chat.user_id == current_user.id %>
+  <p class = "my-chat">
+    <%= chat.message %>
+  </p>
+<% else %>
+  <p class = "opponent-chat">
+    <%= chat.message %>
+  </p>
+<% end %>

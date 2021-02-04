@@ -1,0 +1,15 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-4 mx-auto content-title">
+      <h3 class = "text-center"><%= @opponent_user.name %>さんとのチャット</h3>
+    </div>
+  </div>
+  <div class = "row">
+    <div id = "chats" data-room_id = "<%= @room.id %>">
+      <%= render @chats %>
+    </div>
+    <form>
+      <input type = "text" id = "chat-input" data-behavior = "room_speaker">
+    </form>
+  </div>
+</div>
