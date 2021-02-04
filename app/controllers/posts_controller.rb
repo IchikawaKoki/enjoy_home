@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.page(params[:page]).per(3)
+    @posts = Post.all.order("created_at DESC")
     @ranking = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
     @tags = Tag.all
   end
@@ -26,9 +26,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-  end
-
-  def favorite
   end
 
   def edit

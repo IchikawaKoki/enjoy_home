@@ -1,0 +1,12 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-5 mx-auto content-title">
+      <h3 class = "text-center"><%= @user.name %>さんのフォローユーザー</h3>
+    </div>
+  </div>
+  <div class = "row">
+    <% @users.each do |user| %>
+      <%= user.name %>
+    <% end %>
+  </div>
+</div>

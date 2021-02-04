@@ -3,6 +3,6 @@ class TagsController < ApplicationController
 
   def search
     @tag = Tag.find(params[:id])
-    @posts = @tag.posts.all
+    @posts = @tag.posts.all.order("created_at DESC")
   end
 end

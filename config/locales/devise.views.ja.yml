@@ -91,6 +91,8 @@ ja:
     sessions:
       new:
         sign_in: "ログイン"
+      signed_out: ""
+      signed_in: ""
     shared:
       links:
         back: "戻る"
