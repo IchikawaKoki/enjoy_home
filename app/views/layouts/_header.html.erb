@@ -13,7 +13,7 @@
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li>
-            <a class="nav-link text-light" href="#">マイページ</a>
+            <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light" %>
           </li>
           <li>
             <%= link_to "投稿一覧", posts_path, class: "nav-link text-light" %>

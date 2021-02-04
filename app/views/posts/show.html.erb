@@ -1,14 +1,14 @@
-<div class = "container">
-  <div class = "row d-flex justify-content-center">
-    <div class = "col-3 content-title">
+<div class = "container"  id = "post_<%= @post.id %>" >
+  <div class = "row">
+    <div class = "col-3 mx-auto content-title">
       <h3 class = "text-center">投稿詳細</h3>
     </div>
   </div>
   <div class = "row content-bg">
     <div class = "col-6">
-      <%= attachment_image_tag @post, :image, size: "500x450" %>
+      <%= attachment_image_tag @post, :image, class: "w-100" %>
     </div>
-    <div id = "post_<%= @post.id %>" class = "col-6">
+    <div class = "col-6">
       <h6>タイトル: <%= @post.title %></h6>
       <h6>説明:</h6>
       <p><%= @post.description %></p>
@@ -21,7 +21,9 @@
       <p class = "comments-count">コメント数:<%= @post.comments.count %></p>
       <p>投稿日時: <%= @post.created_at.strftime('%Y/%m/%d') %></p>
       <p>投稿者: <%= @post.user.name %></p>
-      <button>フォローする</button>
+      <% if @post.user != current_user %>
+        <%= render 'relationships/follow', user: @post.user %>
+      <% end %>
       <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-info" %>
       <% if @post.user == current_user %>
         <%= link_to "削除", post_path(@post.id), method: :delete %>

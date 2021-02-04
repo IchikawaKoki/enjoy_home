@@ -1,0 +1,62 @@
+<div class = "container" id = "user_<%= @user.id %>">
+  <div class = "row">
+    <div class = "col-4 mx-auto content-title">
+      <h3 class = "text-center"><%= @user.name %>さんの詳細ページ</h3>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-5">
+      <div class = "row">
+          <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "w-100" %>
+      </div>
+      <dic class = "row">
+        <div class = "profile-content">
+          <h5>名前:<%= @user.name %></h5>
+          <p>
+            自己紹介:<br />
+            <%= @user.introduction %>
+          </p>
+          <p>
+            いいねした投稿数:
+            <% if @user == current_user %>
+              <span id = "current_user-favorite"><%= current_user.favorite_posts.count %></span>
+            <% else %>
+              <span><%= @user.favorite_posts.count %></span>
+            <% end %>
+          </p>
+          <p>フォロー:<%= link_to @user.followings.count, user_followings_path(@user.id) %></p>
+          <p class = "followers">フォロワー:<%= link_to @user.followers.count, user_followers_path(@user.id) %></p>
+        </div>
+          <% if @user == current_user %>
+            <%= link_to "編集する", edit_user_path(@user.id), class: "btn btn-success btn-block" %>
+          <% else %>
+            <div class = "follow">
+              <%= render 'relationships/follow', user: @user %>
+            </div>
+          <% end %>
+      </dic>
+    </div>
+    <div class = "col-7">
+      <div class = "tab-menu d-flex">
+        <h4><a href="#tab1" class = "text-center active"><%= @user.name %>さんの投稿</a></h4>
+        <h4><a href="#tab2" class = "text-center"><%= @user.name %>さんがいいねした投稿</a></h4>
+      </div>
+      <div class = "tab-contents d-flex flex-wrap">
+        <div class = "tab" id = "tab1">
+          <%= render 'posts/index', posts: @posts %>
+        </div>
+        <div class = "tab" id = "tab2">
+          <% if @user == current_user %>
+            <div id = "my-favorite-posts">
+              <%= render 'posts/index', posts: current_user.favorite_posts %>
+            </div>
+          <% else %>
+            <div id = "others-favorite_posts">
+              <%= render 'posts/index', posts: @user.favorite_posts %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

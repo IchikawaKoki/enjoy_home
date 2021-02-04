@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
+  resources :users, only: [:show, :edit, :update, :destroy] do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  end
 
   resources :posts do
     resource :favorites, only: [:create, :destroy]

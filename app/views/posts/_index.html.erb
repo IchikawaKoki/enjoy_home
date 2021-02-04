@@ -1,0 +1,22 @@
+<h5>全<%= posts.count %>件</h5>
+<div class = "d-flex flex-wrap">
+  <% posts.each do |post| %>
+    <div id = "post_<%= post.id %>">
+      <div class = "post_image">
+        <%= attachment_image_tag post, :image, size: "200x150" %>
+      </div>
+      <div class = "post_content">
+        <p>投稿者:<%= link_to post.user.name, user_path(post.user.id) %></p>
+        <p>タイトル:<%= post.title %></p>
+        <p>
+          タグ:
+          <% post.tags.each do |tag| %>
+            <%= link_to tag.name, tag_search_path(tag.id) %>
+          <% end %>
+        </p>
+        <p class = "favorite"><%= render 'favorites/favorite', post: post %></p>
+        <%= link_to "詳細", post_path(post.id) %>
+      </div>
+    </div>
+  <% end %>
+</div>
