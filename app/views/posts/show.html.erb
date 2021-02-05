@@ -21,9 +21,6 @@
       <p class = "comments-count">コメント数:<%= @post.comments.count %></p>
       <p>投稿日時: <%= @post.created_at.strftime('%Y/%m/%d') %></p>
       <p>投稿者: <%= @post.user.name %></p>
-      <% if @post.user != current_user %>
-        <%= render 'relationships/follow', user: @post.user %>
-      <% end %>
       <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-info" %>
       <% if @post.user == current_user %>
         <%= link_to "削除", post_path(@post.id), method: :delete %>

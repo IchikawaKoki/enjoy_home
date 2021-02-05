@@ -24,6 +24,9 @@ class User < ApplicationRecord
   has_many :cahts, dependent: :destroy
   has_many :rooms, through: :user_rooms
 
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
@@ -42,5 +45,16 @@ class User < ApplicationRecord
 
   def unfollow(user)
     active_relationships.find_by(followed_id: user).destroy
+  end
+
+  def create_notification_follow!(current_user)
+    temp = Notification.where(visitor_id: current_user.id, visited_id: id, action: 'follow')
+    if temp.blank?
+       notification = current_user.active_notifications.new(
+         visited_id: id,
+         action: 'follow'
+       )
+       notification.save if notification.valid?
+    end
   end
 end

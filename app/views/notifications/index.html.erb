@@ -1,0 +1,38 @@
+<div class = "container">
+  <div class = "row">
+    <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+    <% if notifications.exists? %>
+      <ul>
+        <% notifications.each do |notification| %>
+          <% visitor = notification.visitor %>
+          <% visited = notification.visited %>
+          <li>
+            <span><strong><%= visitor.name %></strong>さんが</span>
+            <span>
+              <% case notification.action %>
+              <% when "follow" then %>
+                あなたをフォローしました
+              <% when "like" then %>
+                あなたの投稿<%= notification.post.title %>にいいねしました
+              <% when "comment" then %>
+                <% if notification.post.user_id == visited.id %>
+                  あなたの投稿<%= notification.post.title %>にコメントしました
+                  <%= Comment.find_by(id: notification.comment_id).content %>
+                <% else %>
+                  <%= visitor.name %>さんの投稿<%= notification.post.title %>にコメントしました
+                  <%= Comment.find_by(id: notification.comment_id).content %>
+                <% end %>
+              <% when "dm" then %>
+                あなたにDMを送りました。
+                <%= Chat.find_by(id: notification.chat_id).message %>
+              <% end %>
+            </span>
+            <%= notification.created_at %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>通知はありません</p>
+    <% end %>
+  </div>
+</div>

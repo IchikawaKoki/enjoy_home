@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   resources :rooms, only: [:create, :index, :show]
 
+  resources :notifications, only: [:index]
+
   get 'search' => 'searches#search', as: "search"
   get 'tags/:id' => 'tags#search', as: "tag_search"
 end
