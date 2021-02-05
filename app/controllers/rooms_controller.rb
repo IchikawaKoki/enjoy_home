@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :correct_user, only: [:show]
 
   def index
-    @rooms = current_user.rooms.left_joins(:chats).order("chats.created_at DESC")
+    @rooms = current_user.rooms.all
     current_entries = UserRoom.where(room_id: @rooms).pluck(:user_id) << current_user.id
     @no_entries = User.where.not(id: current_entries)
     @user_room = UserRoom.new

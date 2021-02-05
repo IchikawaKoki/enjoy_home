@@ -5,8 +5,10 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.user_id = current_user.id
-    unless @comment.save
-      render 'posts/show'
+    if @comment.save
+       @post.create_notification_comment!(current_user, @comment.id)
+    else
+       render 'posts/show'
     end
   end
 

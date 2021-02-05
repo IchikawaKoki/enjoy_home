@@ -9,6 +9,7 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Chat.create! message: data['chat'], user_id: current_user.id, room_id: params['room']
+    chat = Chat.create!(message: data['chat'], user_id: current_user.id, room_id: params['room'])
+    chat.create_notification_chat!(params['room'], current_user)
   end
 end
