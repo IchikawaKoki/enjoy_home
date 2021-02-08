@@ -3,6 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .tab-menu .active {
-  background: #fff;
-  color: #7a42b6;
+  background-color: #93FFAB;
+  border-radius: 15px;
+}
+
+.user-main-image {
+  width: 60%;
+  height: 200px;
+  background-image: url("/assets/images/write.png");
+  background-position: 50% 60%;
+  background-size: cover;
+  position: relative;
+}
+
+.user-main-image-mask {
+  height: 200px;
+  background-color: rgba(204, 255, 204, 0.5);
+  position: absolute;
+  top: 0;
+}
+
+#tab1, #tab2 {
+  height: 780px;
+  overflow-y: scroll;
 }

@@ -1,3 +1,56 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-content.active {
+  box-shadow: 1px 0 30px #93FFAB;
+}
+
+.left-post {
+  border-right: solid 5px #AEFFBD;
+  border-radius: 25px;
+}
+
+.post-image {
+  position: relative;
+}
+
+.post-show-link {
+  position: absolute;
+  top: 40%;
+  left: 34%;
+  background-color: #ffffff;
+  opacity: 0;
+  box-shadow: 1px 0 30px #93FFAB inset;
+  border-radius: 15px;
+}
+
+.post-show-link.active {
+  opacity: 1;
+}
+
+.post-main-image {
+  width: 60%;
+  height: 200px;
+  background-image: url("/assets/images/room.png");
+  background-position: 50% 60%;
+  background-size: cover;
+  position: relative;
+}
+
+.post-main-image-mask {
+  height: 200px;
+  background-color: rgba(204, 255, 204, 0.5);
+  position: absolute;
+  top: 0;
+}
+
+.comments {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.posts-field {
+  height: 1150px;
+  overflow-y: scroll;
+}

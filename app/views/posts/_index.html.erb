@@ -1,21 +1,21 @@
-<h5>全<%= posts.count %>件</h5>
-<div class = "d-flex flex-wrap">
+<div class = "d-flex flex-wrap justify-content-center pt-3">
   <% posts.each do |post| %>
-    <div id = "post_<%= post.id %>">
-      <div class = "post_image">
-        <%= attachment_image_tag post, :image, size: "200x150" %>
+    <div id = "post_<%= post.id %>" class = "post-content mx-4 mb-4 pb-2">
+      <div class = "post-image">
+        <%= attachment_image_tag post, :image, size: "250x200" %>
+        <%= link_to "詳細へ", post_path(post.id), class: "px-3 py-2 post-show-link" %>
       </div>
-      <div class = "post_content">
+      <div class = "post-text ml-2">
         <p>投稿者:<%= link_to post.user.name, user_path(post.user.id) %></p>
         <p>タイトル:<%= post.title %></p>
         <p>
           タグ:
           <% post.tags.each do |tag| %>
-            <%= link_to tag.name, tag_search_path(tag.id) %>
+            <%= link_to tag.name, tag_search_path(tag.id), class: "tag mx-1" %>
           <% end %>
         </p>
-        <p class = "favorite"><%= render 'favorites/favorite', post: post %></p>
-        <%= link_to "詳細", post_path(post.id) %>
+        <span class = "favorite"><%= render 'favorites/favorite', post: post %></span>
+          <i class="fas fa-comment ml-3"><%= post.comments.count %></i>
       </div>
     </div>
   <% end %>

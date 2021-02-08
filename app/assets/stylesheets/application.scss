@@ -17,18 +17,123 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+body {
+	opacity: 0;
+}
+
+main {
+  box-shadow: 1px 0px 40px #5BFF7F inset;
+  margin-top: 70px;
+}
+
 .field_with_errors {
   display: contents;
 }
 
-.content-bg {
-  background-color: #FAFAD2;
+header {
+  height: 70px;
+  border-top: solid 5px #AEFFBD;
+  border-bottom: solid 5px #FFFFAA;
+  position: fixed;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 2;
 }
 
-.content-title {
-  background-color: #FAFAD2;
+.text-bg-green {
+  text-shadow: 1px 0 20px #43FF6B;
 }
 
-.pagination {
-  justify-content: center;
+#hm-icon {
+  z-index: 10;
+  margin-right: 80px;
+}
+
+.menu-trigger {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 30px;
+}
+
+.menu-trigger span {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+  transition: all 1s;
+}
+
+.menu-trigger span:nth-child(1) {
+  top: 0;
+}
+
+.menu-trigger span:nth-child(2) {
+  top: 15px;
+}
+
+.menu-trigger span:nth-child(3) {
+  top: 30px;
+}
+
+.menu-trigger span.active:nth-child(1) {
+  -webkit-transform: translateY(15px) rotate(-45deg);
+  transform: translateY(15px) rotate(-45deg);
+  background-color: #000000;
+}
+.menu-trigger span.active:nth-child(2) {
+  opacity: 0;
+}
+.menu-trigger span.active:nth-child(3) {
+  -webkit-transform: translateY(-15px) rotate(45deg);
+  transform: translateY(-15px) rotate(45deg);
+  background-color: #000000;
+}
+
+.search-icon {
+  width: 40px;
+  height: 30px;
+}
+
+.search {
+  display: none;
+  height: 60px;
+  position: fixed;
+  top: 70px;
+  background-color: #ffffff;
+  box-shadow: 1px 0 40px #FFFFAA inset;
+  border-bottom: 3px solid #FFFFAA;
+  z-index: 2;
+}
+
+#word {
+  width: 500px;
+}
+
+.side-bar {
+  height: 100%;
+  width: 40%;
+  background-color: blue;
+  position: fixed;
+  top: 70px;
+  left: -40%;
+  z-index: 1;
+  transition: all 1s;
+}
+
+.side-bar.open {
+  left: 0;
+}
+
+.page-title {
+  height: 200px;
+  width: 40%;
+  background-color: #93FFAB	;
+}
+
+.white-space {
+  white-space: pre-wrap;
 }

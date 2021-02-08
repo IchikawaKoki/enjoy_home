@@ -1,10 +1,8 @@
 <div class = "container">
-  <div class = "row d-flex justify-content-center">
-    <div class = "col-3 content-title">
-      <h3 class = "text-center">新規登録</h3>
-    </div>
+  <div class = "row">
+    <h3 class = "mx-auto text-center title"><strong>新規登録<span class = "title-bg"><span>新規登録</span></span></strong></h3>
   </div>
-  <div class = "row content-bg">
+  <div class = "row mt-3 content-bg">
     <div class = "mx-auto px-5 py-4">
       <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>

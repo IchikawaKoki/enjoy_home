@@ -1,40 +1,64 @@
-<div class = "container"  id = "post_<%= @post.id %>" >
+<div class = "container-fluid" id = "post_<%= @post.id %>" >
   <div class = "row">
-    <div class = "col-3 mx-auto content-title">
-      <h3 class = "text-center">投稿詳細</h3>
+    <div class = "page-title">
+      <h2 class = "text-center mt-5">投稿詳細</h2>
+      <p class = "text-center mt-3">投稿内容の詳細が確認できます!!</p>
+    </div>
+    <div class = "post-main-image">
+      <div class = "post-main-image-mask w-100"></div>
     </div>
   </div>
-  <div class = "row content-bg">
+  <div class = "row mx-5 pt-3">
     <div class = "col-6">
       <%= attachment_image_tag @post, :image, class: "w-100" %>
     </div>
     <div class = "col-6">
-      <h6>タイトル: <%= @post.title %></h6>
-      <h6>説明:</h6>
-      <p><%= @post.description %></p>
-      <p>タグ:
-        <% @post.tags.each do |tag| %>
-          <%= link_to tag.name, tag_search_path(tag.id), class: "btn btn-sm" %>
-        <% end %>
-      </p>
-      <p class = "favorite"><%= render 'favorites/favorite', post: @post %></p>
-      <p class = "comments-count">コメント数:<%= @post.comments.count %></p>
-      <p>投稿日時: <%= @post.created_at.strftime('%Y/%m/%d') %></p>
-      <p>投稿者: <%= @post.user.name %></p>
-      <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-info" %>
+      <div class = "row">
+        <h6 class = "col-2 text-bg-green"><strong>タイトル:</strong></h6>
+        <p class = "col-10"><%= @post.title %></p>
+      </div>
+      <div class = "row">
+        <h6 class = "col-2 text-bg-green"><strong>説明:</strong></h6>
+        <p class = "col-10 white-space"><%= @post.description %></p>
+      </div>
+      <div class = "row">
+        <h6 class = "col-2 text-bg-green"><strong>タグ:</strong></h6>
+        <p class = "col-10">
+          <% @post.tags.each do |tag| %>
+          <%= link_to tag.name, tag_search_path(tag.id), class: "tag" %>
+          <% end %>
+        </p>
+      </div>
+      <div class = "row">
+        <h6 class = "col-2 text-bg-green"><strong>投稿日:</strong></h6>
+        <p class = "col-10"><%= @post.created_at.strftime('%Y年%m月%d日') %></p>
+      </div>
+      <div class = "row">
+        <h6 class = "col-2 text-bg-green"><strong>投稿者:</strong></h6>
+        <p class = "col-10">
+          <%= link_to user_path(@post.user.id) do %>
+            <%= @post.user.name %>
+          <% end %>
+        </p>
+      </div>
+      <div>
+        <span class = "favorite"><%= render 'favorites/favorite', post: @post %></span>
+        <i class="fas fa-comment ml-3 mb-4 comments-count"><%= @post.comments.count %></i>
+      </div>
       <% if @post.user == current_user %>
-        <%= link_to "削除", post_path(@post.id), method: :delete %>
+        <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-info" %>
       <% end %>
     </div>
   </div>
-  <div class = "row content-bg">
+  <div class = "row d-flex flex-column w-50 mx-auto mt-5">
+    <h4 class = "text-center text-bg-green">コメント</h4>
     <div class = "comments">
       <%= render 'comments/comment', post: @post %>
     </div>
     <div class = "comment-form">
       <%= form_with model:[@post, @comment] do |f| %>
-        <%= f.text_area :content, class: "form-control" %>
-        <%= f.submit "送信" %>
+        <%= f.text_area :content, rows: "3", placeholder: "コメントをここに", class: "form-control" %>
+        <%= f.submit "送信", class: "btn btn-info btn-block" %>
       <% end %>
     </div>
   </div>

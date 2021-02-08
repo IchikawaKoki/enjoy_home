@@ -1,12 +1,14 @@
-<div class = "container">
+<div class = "container-fluid">
   <div class = "row">
-    <div class = "col-5 mx-auto content-title">
-      <h3 class = "text-center"><%= @user.name %>さんのフォローユーザー</h3>
+    <div class = "page-title">
+      <h2 class = "text-center mt-5"><%= @user.name %>さんのフォロー一覧</h2>
+      <p class = "text-center mt-3"><%= @user.name %>さんがフォローしているユーザー一覧です!!</p>
+    </div>
+    <div class = "user-main-image">
+      <div class = "user-main-image-mask w-100"></div>
     </div>
   </div>
-  <div class = "row">
-    <% @users.each do |user| %>
-      <%= user.name %>
-    <% end %>
+  <div class = "row mx-5 pt-3">
+    <%= render 'relationships/follow_user', user: @user %>
   </div>
 </div>
