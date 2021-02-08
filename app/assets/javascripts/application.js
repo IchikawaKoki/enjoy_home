@@ -18,7 +18,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('.tab-contents .tab[id != "tab1"]').hide();
   $('.tab-menu a').on('click', function(event) {
     $(".tab-contents .tab").hide();
@@ -26,5 +26,57 @@ $(function(){
     $(this).addClass("active");
     $($(this).attr("href")).show();
     event.preventDefault();
+  });
+});
+
+$(document).on('turbolinks:load', function(){
+	$('body').animate({
+	  'opacity': 1
+	}, 2000)
+});
+
+$(document).on('turbolinks:load', function(){
+  $('#post_image').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#preview").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  });
+});
+
+$(document).on('turbolinks:load', function(){
+  $('#user_profile_image').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#profile-image-preview").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  });
+});
+
+$(document).on('turbolinks:load', function(){
+  $('.menu-trigger').on('click', function(event) {
+    event.preventDefault();
+    $('.menu-trigger span').toggleClass('active');
+    $('.side-bar').toggleClass('open');
+  });
+});
+
+$(document).on('turbolinks:load', function(){
+  $('.search-icon').on('click', function() {
+    $(this).children('i').toggleClass('fas fa-search fa-2x');
+    $(this).children('i').toggleClass('fas fa-times fa-2x');
+    $('.search').toggle();
+  });
+});
+
+$(document).on('turbolinks:load', function(){
+  $('.post-content').on('mouseover', function(){
+    $(this).find('.post-show-link').addClass('active');
+    $(this).addClass('active');
+  }).on('mouseout', function(){
+    $(this).find('.post-show-link').removeClass('active');
+    $(this).removeClass('active');
   });
 });

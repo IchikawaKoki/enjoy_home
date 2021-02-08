@@ -1,33 +1,39 @@
-<div class = "container">
+<div class = "container-fluid">
   <div class = "row">
-    <div class = "col-3 mx-auto content-title">
-      <h3 class = "text-center">ユーザー情報編集</h3>
+    <div class = "page-title">
+      <h2 class = "text-center mt-5">ユーザー情報編集</h2>
+      <p class = "text-center mt-3">ユーザー情報の変更を行えます!!</p>
+    </div>
+    <div class = "user-main-image">
+      <div class = "user-main-image-mask w-100"></div>
     </div>
   </div>
-  <div class = "row content-bg px-3 py-4">
+  <div class = "row mx-5 pt-3">
     <div class = "col-5">
-      <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "w-100" %>
+      <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "w-100", id: "profile-image-preview" %>
     </div>
-    <div class = "col-7">
+    <div class = "col-7 mt-5">
       <%= render 'layouts/error', obj: @user %>
       <%= form_with model: @user, local: true do |f| %>
         <div class = "form-group">
           <%= f.label :name, "名前" %><br />
           <%= f.text_field :name, class: "form-control" %>
         </div>
-        <div class = "form-group">
+        <div class = "form-group mt-5">
           <%= f.label :introduction, "自己紹介" %><br />
           <%= f.text_area :introduction, class: "form-control" %>
         </div>
-        <div class = "form-group">
+        <div class = "form-group mt-5">
           <%= f.label :profile_image, "プロフィール画像" %><br />
           <%= f.attachment_field :profile_image %>
         </div>
-        <div class = "form-group">
-          <%= f.submit "変更", class: "btn btn-success btn-block" %>
+        <div class = "form-group mt-5">
+          <%= f.submit "変更", class: "btn btn-outline-success btn-block" %>
         </div>
       <% end %>
+      <div class = "text-right">
+        <%= link_to "退会", user_path(@user.id), method: :delete, class: "btn btn-outline-danger", "data-confirm" => "本当に退会しますか?" %>
+      </div>
     </div>
-    <%= link_to "退会", user_path(@user.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に退会しますか?" %>
   </div>
 </div>

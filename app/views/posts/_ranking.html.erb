@@ -1,22 +1,32 @@
-<% lastFavorite = 0 %>
-<% j = 1 %>
-<% ranking.each.with_index(1) do |post, i| %>
-  <div class = "ranking-post">
-    <%= attachment_image_tag post, :image, size: "200x150" %>
-    <% if i == 1 %>
-      <% lastFavorite = post.favorites.count %>
-    <% end %>
-    <% if post.favorites.count != lastFavorite %>
-      <% j = i %>
-      <p>第<%= j %>位</p>
-      <%= post.title %>
-      <p>いいね数:<%= post.favorites.count %></p>
-      <% lastFavorite = post.favorites.count %>
-    <% else %>
-      <% lastFavorite = post.favorites.count %>
-      <p>第<%= j %>位</p>
-      <%= post.title %>
-      <p>いいね数:<%= post.favorites.count %></p>
-    <% end %>
-  </div>
-<% end %>
+<div id = "ranking" class = "mx-auto">
+  <% lastFavorite = 0 %>
+  <% j = 1 %>
+  <% ranking.each.with_index(1) do |post, i| %>
+    <div class = "post-content my-2 py-1">
+      <% if i == 1 %>
+        <% lastFavorite = post.favorites.count %>
+      <% end %>
+      <% if post.favorites.count != lastFavorite %>
+        <% j = i %>
+        <p class = "text-bg-green">第<%= j %>位</p>
+        <% lastFavorite = post.favorites.count %>
+      <% else %>
+        <% lastFavorite = post.favorites.count %>
+        <p class = "text-bg-green">第<%= j %>位</p>
+      <% end %>
+      <%= attachment_image_tag post, :image, size: "200x150" %>
+      <div class = "row">
+        <p class = "col-5 pr-0 my-0 text-bg-green">タイトル:</p>
+        <p class = "col-7 px-0 my-0"><%= post.title %></p>
+      </div>
+      <div class = "row">
+        <p class = "col-5 pr-0 my-0 text-bg-green">いいね数:</p>
+        <p class = "col-7 px-0 my-0"><%= post.favorites.count %></p>
+      </div>
+      <div class = "row">
+        <p class = "col-5 pr-0 text-bg-green">投稿者:</p>
+        <p class = "col-7 px-0"><%= post.user.name %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

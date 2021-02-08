@@ -1,2 +1,2 @@
 $("#user_<%= @user.id %> .follow").html("<%= j(render 'relationships/follow', user: @user) %>");
-$("#user_<%= @user.id %> .followers").html("フォロワー:<%= j(link_to @user.followers.count, user_followers_path(@user.id)) %>");
+$("#user_<%= @user.id %> .followers").html("<%= j(link_to @user.followers.count, user_followers_path(@user.id)) %>");

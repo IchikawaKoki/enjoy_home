@@ -1,47 +1,18 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
-    <a class="navbar-brand" href="/">
-      <i class="fas fa-home"></i>
-      <span>
-        Enjoy HOME
-      </span>
+<header class = "pt-3 pb-1 px-4 w-100 d-flex justify-content-between">
+  <h3>Enjoy HOME</h3>
+  <div id="hm-icon">
+    <a class="menu-trigger" href="#">
+      <span></span>
+      <span></span>
+      <span></span>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light" %>
-          </li>
-          <li>
-            <%= link_to "投稿一覧", posts_path, class: "nav-link text-light" %>
-          </li>
-          <li>
-            <%= link_to "新規投稿", new_post_path, class: "nav-link text-light" %>
-          </li>
-          <li>
-            <%= link_to "チャット", rooms_path, class: "nav-link text-light" %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-light" %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "トップ", root_path, class: "nav-link text-light" %>
-          </li>
-          <li>
-            <%= link_to "使い方", homes_about_path, class: "nav-link text-light" %>
-          </li>
-          <li>
-            <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-light" %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_user_session_path, class: "nav-link text-light" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
+  </div>
+  <% if user_signed_in? %>
+    <div class = "search-icon"><i class="fas fa-search fa-2x"></i></div>
+  <% else %>
+    <p class = "pt-1">ようこそ!!</p>
+  <% end %>
 </header>
+<% if user_signed_in? %>
+  <div class = "search pt-3 w-100"><%= render 'searches/search' %></div>
+<% end %>
