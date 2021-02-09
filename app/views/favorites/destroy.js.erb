@@ -1,4 +1,4 @@
 $("#post_<%= @post.id %> .favorite").html("<%= j(render 'favorites/favorite', post: @post) %>");
 $("#ranking").html("<%= j(render 'posts/ranking', ranking: @ranking) %>");
 $("#current_user-favorite").html("<%= current_user.favorite_posts.count %>");
-$("#my-favorite-posts").html("<%= j(render 'posts/index', posts: current_user.favorite_posts) %>");
+$("#my-favorite-posts-field").html("<%= j(render 'posts/index', posts: current_user.favorite_posts) %>");

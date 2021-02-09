@@ -8,7 +8,10 @@
       <div class = "user-main-image-mask w-100"></div>
     </div>
   </div>
-  <div class = "row mx-5 pt-3">
-    <%= render 'relationships/follow_user', user: @user %>
+  <div class = "mx-5 pt-3">
+    <h5 class = "mx-5">全<%= @user.followers.count %>人</h5>
+    <div class = "users-field">
+      <%= render 'relationships/follow_user', users: @users %>
+    </div>
   </div>
 </div>

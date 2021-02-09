@@ -10,7 +10,7 @@
   </div>
   <div class = "row mx-5 pt-3">
     <div class = "col-5">
-      <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "w-100", id: "profile-image-preview" %>
+      <%= attachment_image_tag @user, :profile_image, fallback: "no_image.png", class: "w-100", id: "profile-image-preview" %>
     </div>
     <div class = "col-7 mt-5">
       <%= render 'layouts/error', obj: @user %>

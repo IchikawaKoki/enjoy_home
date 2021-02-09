@@ -1,9 +1,19 @@
 <% if chat.user_id == current_user.id %>
-  <p class = "my-chat">
-    <%= chat.message %>
-  </p>
+  <div class = "my-chat ml-auto pl-3 mb-4">
+    <p class = "chatter-name px-3 mb-0">あなた<span class = "ml-5"><%= chat.created_at.strftime('%Y年%m月%d日%H時%M分') %></p>
+    <div class = "chat-content px-3">
+      <p class = "mb-0">
+        <%= chat.message %>
+      </p>
+    </div>
+  </div>
 <% else %>
-  <p class = "opponent-chat">
-    <%= chat.message %>
-  </p>
+  <div class = "opponent-chat pl-3 mb-4">
+    <p class = "chatter-name px-3 mb-0"><%= chat.user.name %><span class = "ml-5"><%= chat.created_at.strftime('%Y年%m月%d日%H時%M分') %></p>
+    <div class = "chat-content px-3">
+      <p class = "mb-0">
+        <%= chat.message %>
+      </p>
+    </div>
+  </div>
 <% end %>

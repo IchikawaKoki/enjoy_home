@@ -10,7 +10,7 @@
   </div>
   <div class = "row mx-5 pt-3">
     <div class = "col-6">
-      <img id = "preview" class = "w-100">
+      <%= attachment_image_tag @post, :image, class: "w-100", id: "preview", fallback: "no_image.png" %>
     </div>
     <div class = "col-6">
       <%= render 'layouts/error', obj: @post %>

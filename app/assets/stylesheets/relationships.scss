@@ -1,3 +1,30 @@
 // Place all the styles related to the Relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.follow-user-content {
+  width: 300px;
+  background-color: #AEFFBD;
+}
+
+.follow-user-image {
+  position: relative;
+}
+
+.user-show-link {
+  position: absolute;
+  top: 45%;
+  left: 37%;
+  background-color: #ffffff;
+  box-shadow: 1px 0 30px #FFFF99 inset;
+  opacity: 0;
+  border-radius: 15px;
+}
+
+.user-show-link.active {
+  opacity: 1;
+}
+
+.follow-user-content.active {
+  box-shadow: 1px 0 40px #FFFF99;
+}
