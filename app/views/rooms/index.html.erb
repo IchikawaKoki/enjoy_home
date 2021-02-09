@@ -1,31 +1,57 @@
-<div class = "container">
+<div class = "container-fluid">
   <div class = "row">
-    <div class = "col-3 mx-auto content-title">
-      <h3 class = "text-center">チャット</h3>
+    <div class = "page-title">
+      <h2 class = "text-center mt-5">チャット</h2>
+      <p class = "text-center mt-3">他のユーザーとチャットをすることができます!!</p>
+    </div>
+    <div class = "post-main-image">
+      <div class = "post-main-image-mask w-100"></div>
+    </div>
+  </div>
+  <div class = "row mt-3">
+    <div class = "mx-auto">
+      <a href = "#" class = "new-chat-button">
+        <h5 class = "text-center pt-2">新しくチャットを始める!!</h5>
+      </a>
     </div>
   </div>
   <div class = "row">
+    <div class = "new-chat-form mx-auto">
+      <% if @no_entries.empty? %>
+        全会員とチャットをしています!!
+      <% else %>
+        <%= form_with model: @user_room, url: rooms_path, local: true do |f| %>
+          <div class = "form-group">
+            <%= f.label :user_id, "新しくチャットを始める相手を選んでください!!" %><br />
+            <%= f.collection_select :user_id, @no_entries, :id, :name, {}, class: "form-control" %>
+            <%= f.submit "開始する", class: "btn btn-outline-info btn-block" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class = "row mx-2 py-3">
     <% if @rooms.empty? %>
-      <p>現在チャット相手はいません</p>
+      <p class = "text-center">現在チャット相手はいません</p>
     <% else %>
-      <table class = "table">
+      <table class = "table chat-table">
         <thead>
           <tr>
-            <th>相手</th>
+            <th class = "pl-5">相手</th>
             <th>最終発言内容</th>
-            <th>最終発言者</th>
+            <th class = "pl-5">最終発言者</th>
             <th>最終発言日時</th>
-            <th colspan = "3"></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <% @rooms.each do |room| %>
             <% entry_user_id = room.user_rooms.where.not(user_id: current_user.id).pluck(:user_id) %>
-              <tr>
-                <td><%= User.find_by(id: entry_user_id).name %></td>
+              <tr class = "chat-tbody-content">
+                <td class = "pl-5"><%= User.find_by(id: entry_user_id).name %></td>
                 <% unless room.chats.empty? %>
                   <td><%= Chat.where(id: room.chats).last.message %></td>
-                  <td>
+                  <td class = "pl-5">
                     <% last_chatter = Chat.where(id: room.chats).last.user %>
                     <% if last_chatter == current_user %>
                       あなた
@@ -39,24 +65,11 @@
                   <td>---</td>
                   <td>---</td>
                 <% end %>
-                <td><%= link_to "チャットへ", room_path(room.id), class: "btn btn-info" %></td>
+                <td class = "text-right pr-5"><%= link_to "チャットへ", room_path(room.id), class: "btn btn-outline-info" %></td>
               </tr>
           <% end %>
         </tbody>
       </table>
-    <% end %>
-  </div>
-  <div class = "row">
-    <% if @no_entries.empty? %>
-      全会員とチャットをしています!!
-     <% else %>
-      <%= form_with model: @user_room, url: rooms_path, local: true do |f| %>
-        <div class = "form-group">
-          <%= f.label :user_id, "新しくチャットを始める相手を選んでください" %>
-          <%= f.collection_select :user_id, @no_entries, :id, :name %>
-          <%= f.submit "開始する" %>
-        </div>
-      <% end %>
     <% end %>
   </div>
 </div>

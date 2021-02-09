@@ -80,3 +80,35 @@ $(document).on('turbolinks:load', function(){
     $(this).removeClass('active');
   });
 });
+
+$(document).on('turbolinks:load', function(){
+  $('.follow-user-content').on('mouseover', function(){
+    $(this).find('.user-show-link').addClass('active');
+    $(this).addClass('active');
+  }).on('mouseout', function(){
+    $(this).find('.user-show-link').removeClass('active');
+    $(this).removeClass('active');
+  });
+});
+
+$(document).on('turbolinks:load', function(){
+  $('.new-chat-button').on('click', function(event){
+    event.preventDefault();
+    $('.new-chat-form').toggle();
+    if ($('.new-chat-button h5').text() === '新しくチャットを始める!!') {
+    $('.new-chat-button h5').text('閉じる');
+ 　  } else {
+    $('.new-chat-button h5').text('新しくチャットを始める!!');
+    }
+  });
+});
+
+$(document).on('turbolinks:load', function(){
+  $('.rank-post-content').on('mouseover', function(){
+    $(this).find('.rank-show-link').addClass('active');
+    $(this).addClass('active');
+  }).on('mouseout', function(){
+    $(this).find('.rank-show-link').removeClass('active');
+    $(this).removeClass('active');
+  });
+});

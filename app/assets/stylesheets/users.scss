@@ -23,7 +23,18 @@
   top: 0;
 }
 
-#tab1, #tab2 {
+#my-favorite-posts-field, #others-favorite-posts-field, .user-posts-field {
   height: 780px;
+  overflow-y: scroll;
+}
+
+.users-field {
+  height: 905px;
+  overflow-y: scroll;
+}
+
+.introduction-field {
+  display: inline-block;
+  max-height: 200px;
   overflow-y: scroll;
 }

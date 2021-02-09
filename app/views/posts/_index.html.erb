@@ -2,7 +2,7 @@
   <% posts.each do |post| %>
     <div id = "post_<%= post.id %>" class = "post-content mx-4 mb-4 pb-2">
       <div class = "post-image">
-        <%= attachment_image_tag post, :image, size: "250x200" %>
+        <%= attachment_image_tag post, :image, size: "250x200", fallback: "no_image.png" %>
         <%= link_to "詳細へ", post_path(post.id), class: "px-3 py-2 post-show-link" %>
       </div>
       <div class = "post-text ml-2">

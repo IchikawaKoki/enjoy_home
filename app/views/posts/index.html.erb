@@ -12,7 +12,7 @@
     <div class = "col-3 left-post">
       <div class = "row d-flex flex-column tags-field">
         <h5 class = "text-center">タグ一覧</h5>
-        <div class = "mx-auto">
+        <div class = "d-flex flex-wrap mx-auto">
           <% @tags.each do |tag| %>
             <%= link_to tag.name, tag_search_path(tag.id), class: "tag mx-1" %>
           <% end %>

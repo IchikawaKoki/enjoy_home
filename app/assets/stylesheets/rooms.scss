@@ -1,3 +1,71 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table {
+  max-height: 680px;
+  overflow-y: scroll;
+}
+
+thead {
+  background-color: #AEFFBD;
+}
+
+.new-chat-form {
+  display: none;
+}
+
+.new-chat-button {
+  display: inline-block;
+  width: 300px;
+  background-color: #AEFFBD;
+  border-radius: 20px;
+}
+
+.room-title {
+  background-color: #AEFFBD;
+  border-radius: 20px;
+}
+
+.chat-form {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  height: 100px;
+  background-color: #AEFFBD;
+}
+
+#chat-input {
+  width: 60%;
+  height: 50%;
+  margin-top: 25px;
+}
+
+.my-chat, .opponent-chat {
+  width: 40%;
+}
+
+.chat-content {
+  border: solid 2px #AEFFBD;
+  border-radius: 20px;
+  overflow-wrap: break-word;
+}
+
+.chat-field {
+  padding-bottom: 50px;
+}
+
+.chatter-name {
+  background-color: #AEFFBD;
+  border-radius: 10px;
+}
+
+.chat-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.chat-tbody-content td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

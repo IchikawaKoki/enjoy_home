@@ -8,20 +8,20 @@
       <div class = "post-main-image-mask w-100"></div>
     </div>
   </div>
-  <div class = "row mx-5 pt-3">
+  <div class = "row mx-5 py-3">
     <div class = "col-6">
-      <%= attachment_image_tag @post, :image, class: "w-100" %>
+      <%= attachment_image_tag @post, :image, class: "w-100", fallback: "no_image.png" %>
     </div>
-    <div class = "col-6">
-      <div class = "row">
+    <div class = "col-6 mt-3">
+      <div class = "row mt-3">
         <h6 class = "col-2 text-bg-green"><strong>タイトル:</strong></h6>
         <p class = "col-10"><%= @post.title %></p>
       </div>
-      <div class = "row">
+      <div class = "row mt-3">
         <h6 class = "col-2 text-bg-green"><strong>説明:</strong></h6>
-        <p class = "col-10 white-space"><%= @post.description %></p>
+        <p class = "col-10 white-space description-field"><%= @post.description %></p>
       </div>
-      <div class = "row">
+      <div class = "row mt-3">
         <h6 class = "col-2 text-bg-green"><strong>タグ:</strong></h6>
         <p class = "col-10">
           <% @post.tags.each do |tag| %>
@@ -29,11 +29,11 @@
           <% end %>
         </p>
       </div>
-      <div class = "row">
+      <div class = "row mt-3">
         <h6 class = "col-2 text-bg-green"><strong>投稿日:</strong></h6>
         <p class = "col-10"><%= @post.created_at.strftime('%Y年%m月%d日') %></p>
       </div>
-      <div class = "row">
+      <div class = "row mt-3">
         <h6 class = "col-2 text-bg-green"><strong>投稿者:</strong></h6>
         <p class = "col-10">
           <%= link_to user_path(@post.user.id) do %>
@@ -41,17 +41,19 @@
           <% end %>
         </p>
       </div>
-      <div>
+      <div class = "mt-4">
         <span class = "favorite"><%= render 'favorites/favorite', post: @post %></span>
         <i class="fas fa-comment ml-3 mb-4 comments-count"><%= @post.comments.count %></i>
       </div>
-      <% if @post.user == current_user %>
-        <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-info" %>
-      <% end %>
+      <div class = "row mx-5 mt-4">
+        <% if @post.user == current_user %>
+          <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-info btn-block" %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class = "row d-flex flex-column w-50 mx-auto mt-5">
-    <h4 class = "text-center text-bg-green">コメント</h4>
+    <h4 class = "text-center">コメント</h4>
     <div class = "comments">
       <%= render 'comments/comment', post: @post %>
     </div>

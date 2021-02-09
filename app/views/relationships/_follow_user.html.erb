@@ -1,0 +1,20 @@
+<div class = "d-flex flex-wrap justify-content-center">
+  <% users.each do |user| %>
+    <div class = "follow-user-content mx-5 my-4">
+      <div class = "follow-user-image">
+        <%= attachment_image_tag user, :profile_image, fallback: "no_image.png", size: "300x300" %>
+        <%= link_to "詳細へ", user_path(user.id), class: "px-3 py-2 user-show-link" %>
+      </div>
+      <div class = "follow-user-text pl-5 py-2">
+        <div class = "row">
+          <h6 class = "col-4 text-bg-green"><strong>名前</strong></h6>
+          <h6 class = "col-8"><%= user.name %></h6>
+        </div>
+        <div class = "row">
+          <h6 class = "col-4 text-bg-green"><strong>投稿数</strong></h6>
+          <h6 class = "col-8"><%= user.posts.count %></h6>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

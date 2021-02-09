@@ -24,6 +24,7 @@ body {
 main {
   box-shadow: 1px 0px 40px #5BFF7F inset;
   margin-top: 70px;
+  min-height: 650px;
 }
 
 .field_with_errors {
@@ -131,7 +132,7 @@ header {
 .page-title {
   height: 200px;
   width: 40%;
-  background-color: #93FFAB	;
+  background-color: #93FFAB;
 }
 
 .white-space {

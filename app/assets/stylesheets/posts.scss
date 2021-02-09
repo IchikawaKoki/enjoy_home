@@ -33,7 +33,7 @@
   width: 60%;
   height: 200px;
   background-image: url("/assets/images/room.png");
-  background-position: 50% 60%;
+  background-position: 50% 75%;
   background-size: cover;
   position: relative;
 }
@@ -46,11 +46,39 @@
 }
 
 .comments {
-  height: 300px;
+  max-height: 300px;
   overflow-y: scroll;
 }
 
 .posts-field {
   height: 1150px;
   overflow-y: scroll;
+}
+
+.description-field {
+  display: inline-block;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.rank-post-image {
+  position: relative;
+}
+
+.rank-show-link {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  background-color: #ffffff;
+  opacity: 0;
+  box-shadow: 1px 0 30px #93FFAB inset;
+  border-radius: 15px;
+}
+
+.rank-show-link.active {
+  opacity: 1;
+}
+
+.rank-post-content.active {
+  box-shadow: 1px 0 30px #93FFAB;
 }

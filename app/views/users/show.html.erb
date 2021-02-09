@@ -11,17 +11,17 @@
   <div class = "row mt-3 ml-5">
     <div class = "col-4">
       <div class = "row">
-          <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "w-100" %>
+        <%= attachment_image_tag @user, :profile_image, fallback: "no_image.png", class: "w-100" %>
       </div>
-      <div class = "row">
+      <div class = "row mt-2">
         <h6 class = "col-4 text-bg-green"><strong>名前</strong></h6>
         <p class = "col-8"><%= @user.name %></p>
       </div>
-      <div class = "row">
+      <div class = "row mt-3">
         <h6 class = "col-4 text-bg-green"><strong>自己紹介</strong></h6>
-        <p class = "col-8 white-space"><%= @user.introduction %></p>
+        <p class = "col-8 white-space introduction-field"><%= @user.introduction %></p>
       </div>
-      <div class = "row">
+      <div class = "row mt-3">
         <h6 class = "col-4 text-bg-green"><strong>いいねした投稿</strong></h6>
         <p class = "col-8">
           <% if @user == current_user %>
@@ -31,40 +31,45 @@
           <% end %>
         </p>
       </div>
-      <div class = "row">
+      <div class = "row mt-3">
         <h6 class = "col-4 text-bg-green"><strong>フォロー</strong></h6>
         <p class = "col-8"><%= link_to @user.followings.count, user_followings_path(@user.id) %></p>
       </div>
-      <div class = "row">
+      <div class = "row mt-3">
         <h6 class = "col-4 text-bg-green"><strong>フォロワー</strong></h6>
         <p class = "col-8 followers"><%= link_to @user.followers.count, user_followers_path(@user.id) %></p>
       </div>
-      <div class = "row">
+      <div class = "row mt-3">
         <% if @user == current_user %>
           <%= link_to "編集する", edit_user_path(@user.id), class: "btn btn-success btn-block" %>
         <% else %>
-          <div class = "follow">
+          <div class = "follow w-100">
             <%= render 'relationships/follow', user: @user %>
           </div>
         <% end %>
       </div>
     </div>
-    <div class = "col-8 px-5 user-posts-field">
+    <div class = "col-8 px-5">
       <div class = "tab-menu d-flex justify-content-center">
         <h4><a href="#tab1" class = "text-center active px-2"><%= @user.name %>さんの投稿</a></h4>
         <h4><a href="#tab2" class = "text-center px-2"><%= @user.name %>さんがいいねした投稿</a></h4>
       </div>
       <div class = "tab-contents d-flex flex-wrap">
         <div class = "tab pt-4 w-100" id = "tab1">
-          <%= render 'posts/index', posts: @posts %>
+          <h5 class = "text-center">全<%= @posts.count %>件</h5>
+          <div class = "user-posts-field">
+            <%= render 'posts/index', posts: @posts %>
+          </div>
         </div>
         <div class = "tab pt-4 w-100" id = "tab2">
           <% if @user == current_user %>
-            <div id = "my-favorite-posts">
+            <h5 class = "text-center">全<%= current_user.favorite_posts.count %>件</h5>
+            <div id = "my-favorite-posts-field">
               <%= render 'posts/index', posts: current_user.favorite_posts %>
             </div>
           <% else %>
-            <div id = "others-favorite_posts">
+            <h5 class = "text-center">全<%= @user.favorite_posts.count %>件</h5>
+            <div id = "others-favorite-posts-field">
               <%= render 'posts/index', posts: @user.favorite_posts %>
             </div>
           <% end %>
