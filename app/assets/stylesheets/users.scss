@@ -16,13 +16,6 @@
   position: relative;
 }
 
-.user-main-image-mask {
-  height: 200px;
-  background-color: rgba(204, 255, 204, 0.5);
-  position: absolute;
-  top: 0;
-}
-
 #my-favorite-posts-field, #others-favorite-posts-field, .user-posts-field {
   height: 780px;
   overflow-y: scroll;

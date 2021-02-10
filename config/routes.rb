@@ -24,4 +24,8 @@ Rails.application.routes.draw do
 
   get 'search' => 'searches#search', as: "search"
   get 'tags/:id' => 'tags#search', as: "tag_search"
+
+  get 'inquiries/new' => 'inquiries#new'
+  get 'inquiries/confirm' => 'inquiries#confirm'
+  get 'inquiries/thanks' => 'inquiries#thanks'
 end

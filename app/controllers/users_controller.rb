@@ -22,6 +22,15 @@ class UsersController < ApplicationController
 
   def destroy
     user = User.find(params[:id])
+    posts = user.posts.all
+    posts.each do |post|
+      tags = post.tags.all
+      tags.each do |tag|
+        unless tag.posts.where.not(id: post.id).exists?
+          tag.destroy
+        end
+      end
+    end
     user.destroy
     redirect_to root_path
   end
