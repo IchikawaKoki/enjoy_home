@@ -46,6 +46,12 @@ class PostsController < ApplicationController
 
   def destroy
     post = Post.find(params[:id])
+    tags = post.tags.all
+    tags.each do |tag|
+      unless tag.posts.where.not(id: post.id).exists?
+        tag.destroy
+      end
+    end
     post.destroy
     redirect_to posts_path
   end

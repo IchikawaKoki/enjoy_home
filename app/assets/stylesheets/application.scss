@@ -138,3 +138,10 @@ header {
 .white-space {
   white-space: pre-wrap;
 }
+
+.main-image-mask {
+  height: 200px;
+  background-color: rgba(204, 255, 204, 0.5);
+  position: absolute;
+  top: 0;
+}

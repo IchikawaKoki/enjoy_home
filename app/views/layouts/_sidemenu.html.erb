@@ -21,6 +21,11 @@
       <% end %>
     </div>
     <div class = "row menu">
+      <%= link_to inquiries_new_path do %>
+        <h2>お問い合わせ</h2>
+      <% end %>
+    </div>
+    <div class = "row menu">
       <%= link_to destroy_user_session_path, method: :delete do %>
         <h2>ログアウト</h2>
       <% end %>

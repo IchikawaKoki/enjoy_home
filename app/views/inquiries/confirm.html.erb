@@ -1,0 +1,38 @@
+<div class = "container-fluid">
+  <div class = "row">
+    <div class = "page-title">
+      <h2 class = "text-center mt-5">お問い合わせ</h2>
+      <p class = "text-center mt-3">不明点などを問い合わせることができます!!</p>
+    </div>
+    <div class = "inquiry-main-image">
+      <div class = "main-image-mask w-100"></div>
+    </div>
+  </div>
+  <div class = "row px-5">
+    <div class = "inquiry-field mx-auto w-100">
+      <h4 class = "text-center py-2 mt-2 inquiry-title">お問い合わせ内容確認</h4>
+      <div class = "inquiry-form w-50 mx-auto">
+        <%= form_with model: @inquiry, url: inquiries_thanks_path, method: :get, local: true do |f| %>
+          <div class = "form-group row">
+            <p class = "col-4">お名前</p>
+            <%= f.hidden_field :name, value: @inquiry.name %>
+            <span><%= @inquiry.name %></span>
+          </div>
+          <div class = "form-group row">
+            <p class = "col-4">メールアドレス</p>
+            <%= f.hidden_field :email, value: @inquiry.email %>
+            <span><%= @inquiry.email %></span>
+          </div>
+          <div class = "form-group row">
+            <p class = "col-4">お問い合わせ内容</p>
+            <%= f.hidden_field :message, value: @inquiry.message %><br />
+            <span><%= simple_format(@inquiry.message) %></span>
+          </div>
+          <div class = "form-group">
+            <%= f.submit '送信', :class => 'btn btn-outline-primary btn-block' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
