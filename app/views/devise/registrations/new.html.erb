@@ -2,7 +2,7 @@
   <div class = "row mt-3 pt-3">
     <h3 class = "mx-auto text-center title"><strong>新規登録</strong></h3>
   </div>
-  <div class = "row mt-3 content-bg">
+  <div class = "row mt-3">
     <div class = "mx-auto px-5 py-4">
       <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>

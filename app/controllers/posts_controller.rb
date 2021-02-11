@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     tag_list = params[:post][:name].split(",")
     if @post.save
        @post.save_tags(tag_list)
-       redirect_to posts_path
+       redirect_to post_path(@post.id)
     else
        render :new
     end

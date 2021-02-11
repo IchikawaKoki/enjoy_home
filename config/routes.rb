@@ -3,9 +3,16 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about'
 
-  devise_for :users
+  devise_for :users, skip: :all
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+    post '/users/guest_sign_in' => 'users/sessions#new_guest'
+    get '/users/sign_up' => 'users/registrations#new', as: :new_user_registration
+    post '/users' => 'users/registrations#create', as: :user_registration
+    get '/users/sign_in' => 'users/sessions#new', as: :new_user_session
+    post '/users/sign_in' => 'users/sessions#create', as: :user_session
+    get '/users/edit' => 'users/registrations#edit', as: :edit_user_registration
+    patch '/users/update' => 'users/registrations#update', as: :update_user_registration
+    delete '/users/sign_out' => 'users/sessions#destroy', as: :destroy_user_session
   end
   resources :users, only: [:show, :edit, :update, :destroy] do
     resource :relationships, only: [:create, :destroy]

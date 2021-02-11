@@ -32,7 +32,7 @@
 .post-main-image {
   width: 60%;
   height: 200px;
-  background-image: url("/assets/images/room.png");
+  background-image: image-url("/assets/images/room.png");
   background-position: 50% 80%;
   background-size: cover;
   position: relative;
@@ -46,4 +46,26 @@
 .posts-field {
   height: 1150px;
   overflow-y: scroll;
+}
+
+.rank-post-content.active {
+  box-shadow: 1px 0 30px #93FFAB;
+}
+
+.rank-post-image {
+  position: relative;
+}
+
+.rank-show-link {
+  position: absolute;
+  top: 35%;
+  left: 30%;
+  background-color: #ffffff;
+  opacity: 0;
+  box-shadow: 1px 0 30px #93FFAB inset;
+  border-radius: 15px;
+}
+
+.rank-show-link.active {
+  opacity: 1;
 }

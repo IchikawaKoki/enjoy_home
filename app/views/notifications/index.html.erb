@@ -1,38 +1,77 @@
-<div class = "container">
+<div class = "container-fluid">
   <div class = "row">
-    <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-    <% if notifications.exists? %>
-      <ul>
+    <div class = "mx-auto room-title pt-2 px-3">
+      <h3 class = "text-center">通知一覧</h3>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "notifications-field mt-3 mx-auto w-100">
+      <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+      <% if notifications.exists? %>
         <% notifications.each do |notification| %>
           <% visitor = notification.visitor %>
           <% visited = notification.visited %>
-          <li>
-            <span><strong><%= visitor.name %></strong>さんが</span>
-            <span>
+          <div class = "notification-content row mx-auto py-3">
+            <div class = "col-2">
+              <%= attachment_image_tag @user, :profile_image, fallback: "no_image.png", class: "w-75 notification-profile-image" %>
+            </div>
+            <div class = "col-10 notification-text">
+              <span>
+                <%= link_to user_path(visitor.id) do %>
+                  <%= visitor.name %>
+                <% end %>
+                さんが
+              </span>
               <% case notification.action %>
               <% when "follow" then %>
-                あなたをフォローしました
+                <span>あなたをフォローしました!!</span>
               <% when "like" then %>
-                あなたの投稿<%= notification.post.title %>にいいねしました
+                <span>
+                  あなたの投稿
+                  <%= link_to post_path(notification.post.id) do %>
+                    <%= notification.post.title %>
+                  <% end %>
+                  にいいねしました!!
+                </span>
               <% when "comment" then %>
                 <% if notification.post.user_id == visited.id %>
-                  あなたの投稿<%= notification.post.title %>にコメントしました
-                  <%= Comment.find_by(id: notification.comment_id).content %>
+                  <span>
+                    あなたの投稿
+                    <%= link_to post_path(notification.post.id) do %>
+                      <%= notification.post.title %>
+                    <% end %>
+                    にコメントしました!!
+                  </span>
                 <% else %>
-                  <%= visitor.name %>さんの投稿<%= notification.post.title %>にコメントしました
-                  <%= Comment.find_by(id: notification.comment_id).content %>
+                  <span>
+                    <%= visitor.name %>さんの投稿
+                      <%= link_to post_path(notification.post.id) do %>
+                      <%= notification.post.title %>にコメントしました!!
+                    <% end %>
+                  </span>
                 <% end %>
+                <p class = "pt-2"><%= Comment.find_by(id: notification.comment_id).content %></p>
               <% when "dm" then %>
-                あなたにDMを送りました。
-                <%= Chat.find_by(id: notification.chat_id).message %>
+                <span>
+                  あなたに
+                  <%= link_to room_path(notification.room_id) do %>
+                    DM
+                  <% end %>
+                  を送りました!!
+                </span>
+                <p class = "pt-2">
+                  <%= Chat.find_by(id: notification.chat_id).message %>
+                <p>
               <% end %>
-            </span>
-            <%= notification.created_at %>
-          </li>
+              <p class = "notification-time">
+                <%= notification.created_at.strftime('%Y年%m月%d日%H時%M分') %>
+              </p>
+            </div>
+          </div>
         <% end %>
-      </ul>
-    <% else %>
-      <p>通知はありません</p>
-    <% end %>
+      <% else %>
+        <p class = "text-center mt-5 mx-auto">通知はありません</p>
+      <% end %>
+    </div>
   </div>
 </div>
