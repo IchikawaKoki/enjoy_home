@@ -1,0 +1,10 @@
+<div class = "notification-icon">
+  <%= link_to notifications_path do %>
+    <% if unchecked_notifications.any? %>
+      <i class = "fas fa-bell fa-3x fa-stack-3xr"></i>
+      <i class = "fas fa-circle n-circle fa-stack-1x"></i>
+    <% else %>
+      <i class = "fas fa-bell fa-3x fa-stack-3x"></i>
+    <% end %>
+  <% end %>
+</div>

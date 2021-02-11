@@ -27,6 +27,24 @@ main {
   min-height: 650px;
 }
 
+.notification-icon {
+  position: fixed;
+  top: 85px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+  background-color: white;
+}
+
+.n-circle {
+  position: absolute;
+  padding-left: 1rem;
+  padding-top: 0rem;
+  color: #efa04c;
+  height: 10px;
+}
+
 .field_with_errors {
   display: contents;
 }
