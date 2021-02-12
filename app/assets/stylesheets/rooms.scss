@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.chat-main-image {
+  width: 60%;
+  height: 200px;
+  background-image: image-url("/assets/images/chat.png");
+  background-position: 50% 85%;
+  background-size: cover;
+  position: relative;
+}
+
 .table {
   max-height: 680px;
   overflow-y: scroll;

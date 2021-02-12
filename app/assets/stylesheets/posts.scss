@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.post-content {
+  width: 300px;
+  height: 400px;
+}
+
 .post-content.active {
   box-shadow: 1px 0 30px #93FFAB;
 }
@@ -18,7 +23,7 @@
 .post-show-link {
   position: absolute;
   top: 40%;
-  left: 34%;
+  left: 37%;
   background-color: #ffffff;
   opacity: 0;
   box-shadow: 1px 0 30px #93FFAB inset;
@@ -44,8 +49,12 @@
 }
 
 .posts-field {
-  height: 1150px;
+  height: 1300px;
   overflow-y: scroll;
+}
+
+.rank-post-content {
+  width: 250px;
 }
 
 .rank-post-content.active {
@@ -58,8 +67,8 @@
 
 .rank-show-link {
   position: absolute;
-  top: 35%;
-  left: 30%;
+  top: 39%;
+  left: 34%;
   background-color: #ffffff;
   opacity: 0;
   box-shadow: 1px 0 30px #93FFAB inset;
@@ -68,4 +77,16 @@
 
 .rank-show-link.active {
   opacity: 1;
+}
+
+.description-field {
+  display: inline-block;
+  max-height: 200px;
+  overflow-y: scroll;
+  word-wrap: break-word;
+}
+
+.tag-content {
+  max-height: 48px;
+  overflow-y: scroll;
 }

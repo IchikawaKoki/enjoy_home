@@ -1,4 +1,16 @@
 ja:
+  activemodel:
+    models:
+      inquiry:
+    attributes:
+      inquiry:
+        message: "お問い合わせ内容"
+    errors:
+      models:
+        inquiry:
+          attributes:
+            message:
+              blank: "を入力してください!!"
   activerecord:
     errors:
       models:
@@ -6,18 +18,28 @@ ja:
           attributes:
             title:
               blank: "を入力してください!!"
+              too_long: "は%{count}文字以内で入力してください!!"
             description:
               blank: "を入力してください!!"
         user:
           attributes:
             name:
               blank: "を入力してください!!"
+              too_long: "は%{count}文字以内で入力してください!!"
+        comment:
+          attributes:
+            content:
+              blank: "を入力してください!!"
+          
     models:
       post: "投稿"
       user: "ユーザー情報"
+      comment: "コメント"
     attributes:
       post:
         title: "タイトル"
         description: "説明"
       user:
         name: "名前"
+      comment:
+        content: "コメント"

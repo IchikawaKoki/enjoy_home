@@ -6,6 +6,8 @@ class Chat < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
 
+  validates :message, presence: true
+
   def create_notification_chat!(room_id, current_user)
     another_entries = UserRoom.where(room_id: room_id).where.not(user_id: current_user.id)
     theid = another_entries.find_by(room_id: room_id)

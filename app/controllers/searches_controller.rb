@@ -9,5 +9,7 @@ class SearchesController < ApplicationController
     else
        @posts = Post.search_content(@word).order("created_at DESC")
     end
+    @ranking = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+    @tags = Tag.all
   end
 end

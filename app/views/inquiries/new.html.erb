@@ -13,6 +13,7 @@
       <h4 class = "text-center py-2 mt-2 inquiry-title">お問い合わせ内容入力</h4>
       <div class = "inquiry-form w-50 mx-auto">
         <%= form_with model: @inquiry, url: inquiries_confirm_path, method: :get, local: true do |f| %>
+        <%= render 'layouts/error', obj: @inquiry %>
           <div class = "form-group row">
             <%= f.label :name, "名前", class: "col-4" %>
             <span><%= current_user.name %></span>
