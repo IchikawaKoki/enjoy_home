@@ -8,8 +8,13 @@
       <div class = "main-image-mask w-100"></div>
     </div>
   </div>
-  <div class = "mx-5 pt-3">
-    <h5 class = "mx-5">全<%= @user.followers.count %>人</h5>
+  <div class = "mx-5 pt-2">
+    <p class = "ml-1">
+      <%= link_to user_path(@user.id) do %>
+        <%= @user.name %>さんの詳細ページへ戻る
+      <% end %>
+    </p>
+    <h5 class = "text-center">全<%= @user.followers.count %>人</h5>
     <div class = "users-field">
       <%= render 'relationships/follow_user', users: @users %>
     </div>

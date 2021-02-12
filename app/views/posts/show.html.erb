@@ -54,12 +54,12 @@
   </div>
   <div class = "row d-flex flex-column w-50 mx-auto mt-5">
     <h4 class = "text-center">コメント</h4>
-    <div class = "comments">
+    <div class = "comments w-100">
       <%= render 'comments/comment', post: @post %>
     </div>
     <div class = "comment-form">
       <%= form_with model:[@post, @comment] do |f| %>
-        <%= f.text_area :content, rows: "3", placeholder: "コメントをここに", class: "form-control" %>
+        <%= f.text_area :content, rows: "3", placeholder: "コメントをここに(空のコメントは送信できません)", class: "form-control" %>
         <%= f.submit "送信", class: "btn btn-info btn-block" %>
       <% end %>
     </div>

@@ -8,20 +8,23 @@
       <div class = "main-image-mask w-100"></div>
     </div>
   </div>
+  <div class = "row ml-5 pt-3">
+    <%= link_to "マイページに戻る", user_path(@user) %>
+  </div>
   <div class = "row mx-5 pt-3">
     <div class = "col-5">
       <%= attachment_image_tag @user, :profile_image, fallback: "no_image.png", class: "w-100", id: "profile-image-preview" %>
     </div>
-    <div class = "col-7 mt-5">
+    <div class = "col-7 mt-2">
       <%= render 'layouts/error', obj: @user %>
       <%= form_with model: @user, local: true do |f| %>
         <div class = "form-group">
           <%= f.label :name, "名前" %><br />
-          <%= f.text_field :name, class: "form-control" %>
+          <%= f.text_field :name, class: "form-control", placeholder: "10文字以内" %>
         </div>
         <div class = "form-group mt-5">
           <%= f.label :introduction, "自己紹介" %><br />
-          <%= f.text_area :introduction, class: "form-control" %>
+          <%= f.text_area :introduction, rows:5, class: "form-control" %>
         </div>
         <div class = "form-group mt-5">
           <%= f.label :profile_image, "プロフィール画像" %><br />
@@ -29,7 +32,7 @@
         </div>
         <div class = "form-group mt-5">
           <%= f.submit "変更", class: "btn btn-outline-success btn-block" %>
-          <%= link_to "パスワードの変更はこちら", edit_user_registration_path %>
+          <%= link_to "メールアドレス・パスワードの変更はこちら", edit_user_registration_path %>
         </div>
       <% end %>
       <div class = "text-right">

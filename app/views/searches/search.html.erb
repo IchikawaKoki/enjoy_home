@@ -1,4 +1,33 @@
-<% @posts.each do |post| %>
-  <%= post.title %><br />
-  <%= post.description %>
-<% end %>
+<div class = "container-fluid">
+  <div class = "row">
+    <div class = "page-title">
+      <h2 class = "text-center mt-5">「<%= @word %>」の検索結果一覧</h2>
+      <p class = "text-center mt-3">気になる投稿を探してみましょう!!</p>
+    </div>
+    <div class = "post-main-image">
+      <div class = "main-image-mask w-100"></div>
+    </div>
+  </div>
+  <div class = "row mx-4 pt-3">
+    <div class = "col-3 left-post">
+      <h5 class = "text-center">タグ一覧</h5>
+      <div class = "row d-flex flex-column tags-field">
+        <div class = "d-flex flex-wrap mx-auto">
+          <% @tags.each do |tag| %>
+            <%= link_to tag.name, tag_search_path(tag.id), class: "tag mx-1" %>
+          <% end %>
+        </div>
+      </div>
+      <div class = "row d-flex flex-column">
+        <h5 class = "text-center">いいねランキング</h5>
+        <%= render 'posts/ranking', ranking: @ranking %>
+      </div>
+    </div>
+    <div class = "col-9">
+      <h5 class = "text-center">全<%= @posts.count %>件</h5>
+      <div class = "posts-field">
+        <%= render 'posts/index', posts: @posts %>
+      </div>
+    </div>
+  </div>
+</div>

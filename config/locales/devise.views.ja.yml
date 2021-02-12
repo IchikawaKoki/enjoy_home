@@ -20,6 +20,7 @@ ja:
             name:
               blank: "を入力してください!!"
               invalid: "は有効でありません!!"
+              too_long: "は%{count}文字以内で入力してください!!"
             password_confirmation:
               taken: "は既に使用されています!!"
               blank: "を入力してください!!"

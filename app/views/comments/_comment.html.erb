@@ -1,9 +1,19 @@
 <% post.comments.each do |comment| %>
-  <div class = "d-flex justify-content-between border-bottom">
-  <p class = "mb-0">
-    <span class = "mr-3"><%= comment.user.name %></span><%= comment.created_at.strftime('%Y年%m月%d日%H時%M分') %><br />
-    <%= comment.content %>
-  </p>
-  <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete, remote: true, class: "btn btn-danger h-75" %>
+  <div class = "border-bottom">
+    <div class = "w-100 d-flex justify-content-between">
+      <p class = "mb-0">
+        <span class = "mr-3">
+          <%= link_to user_path(comment.user.id) do %>
+            <%= comment.user.name %>
+          <% end %>
+          さん
+        </span>
+        <span><%= comment.created_at.strftime('%Y年%m月%d日%H時%M分') %></span>
+      </p>
+      <p class = "mb-0">
+        <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete, remote: true, class: "btn btn-danger" %>
+      </p>
+    </div>
+    <p class = "mb-0 white-space w-100 comment-text"><%= comment.content %></p>
   </div>
 <% end %>
