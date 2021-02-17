@@ -2,3 +2,21 @@ $("#post_<%= @post.id %> .favorite").html("<%= j(render 'favorites/favorite', po
 $("#ranking").html("<%= j(render 'posts/ranking', ranking: @ranking) %>");
 $("#current_user-favorite").html("<%= current_user.favorite_posts.count %>");
 $("#my-favorite-posts-field").html("<%= j(render 'posts/index', posts: current_user.favorite_posts) %>");
+
+$(document).on('mouseover', '.rank-post-content', function(){
+  $(this).find('.rank-show-link').addClass('active');
+  $(this).addClass('active');
+});
+$(document).on('mouseout', '.rank-post-content', function(){
+  $(this).find('.rank-show-link').removeClass('active');
+  $(this).removeClass('active');
+});
+
+$(document).on('mouseover', '.post-content', function(){
+  $(this).find('.post-show-link').addClass('active');
+  $(this).addClass('active');
+});
+$(document).on('mouseout', '.post-content', function(){
+  $(this).find('.post-show-link').removeClass('active');
+  $(this).removeClass('active');
+});

@@ -6,8 +6,17 @@
   background-image: image-url("home.jpg");
   background-position: center;
   background-size: cover;
-  border-radius: 20px;
   height: 450px;
+  position: relative;
+}
+
+.top-image-text {
+  position: absolute;
+  width: 45%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .about-content {
@@ -16,4 +25,10 @@
 
 .top-bottom-image {
   height: 150px;
+}
+
+.top-bottom-content {
+  box-shadow: 1px 0px 40px #5BFF7F inset;
+  border-radius: 15px;
+  height: 250px;
 }

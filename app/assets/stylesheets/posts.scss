@@ -5,6 +5,12 @@
 .post-content {
   width: 300px;
   height: 400px;
+  position: relative;
+}
+
+.favorite-comment-field {
+  position: absolute;
+  bottom: 5px;
 }
 
 .post-content.active {
@@ -89,4 +95,14 @@
 .tag-content {
   max-height: 48px;
   overflow-y: scroll;
+}
+
+.user-show-text {
+  position: relative;
+  min-height: 550px;
+}
+
+.user-edit-button {
+  position: absolute;
+  bottom: 0;
 }
