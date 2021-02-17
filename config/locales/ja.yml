@@ -30,7 +30,7 @@ ja:
           attributes:
             content:
               blank: "を入力してください!!"
-          
+
     models:
       post: "投稿"
       user: "ユーザー情報"

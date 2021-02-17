@@ -8,6 +8,9 @@
       <div class = "main-image-mask w-100"></div>
     </div>
   </div>
+  <div class = "row ml-5 pt-3">
+    <%= link_to "投稿詳細に戻る", post_path(@post.id) %>
+  </div>
   <div class = "row mx-5 pt-3">
     <div class = "col-6">
       <%= attachment_image_tag @post, :image, class: "w-100", id: "preview", fallback: "no_image.png" %>
@@ -39,6 +42,5 @@
         <%= link_to "投稿を削除", post_path(@post.id), method: :delete, class: "btn btn-outline-danger" %>
       </div>
     </div>
-    <%= link_to "投稿詳細に戻る", post_path(@post.id) %>
   </div>
 </div>
