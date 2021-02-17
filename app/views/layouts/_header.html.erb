@@ -1,17 +1,25 @@
-<header class = "pt-3 pb-1 px-4 w-100 d-flex justify-content-between">
-  <h3>Enjoy HOME</h3>
-  <div id="hm-icon">
-    <a class="menu-trigger" href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-    </a>
+<header class = "pt-3 pb-1 px-4 w-100">
+  <div class = "container-fluid">
+    <div class = "row">
+      <h3 class = "col-4">Enjoy HOME</h3>
+      <div class = "col-4">
+        <div id="hm-icon" class = "mx-auto">
+          <a class="menu-trigger" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+      </div>
+      <div class = "col-4">
+        <% if user_signed_in? %>
+          <div class = "search-icon ml-auto"><i class="fas fa-search fa-2x"></i></div>
+        <% else %>
+          <p class = "pt-1 text-right">ようこそ!!</p>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <% if user_signed_in? %>
-    <div class = "search-icon"><i class="fas fa-search fa-2x"></i></div>
-  <% else %>
-    <p class = "pt-1">ようこそ!!</p>
-  <% end %>
 </header>
 <% if user_signed_in? %>
   <div class = "search pt-3 w-100"><%= render 'searches/search' %></div>

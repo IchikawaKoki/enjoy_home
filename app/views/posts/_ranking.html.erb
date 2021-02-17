@@ -8,26 +8,26 @@
       <% end %>
       <% if post.favorites.count != lastFavorite %>
         <% j = i %>
-        <p>第<%= j %>位</p>
+        <p><strong>第<%= j %>位</strong></p>
         <% lastFavorite = post.favorites.count %>
       <% else %>
         <% lastFavorite = post.favorites.count %>
-        <p>第<%= j %>位</p>
+        <p><strong>第<%= j %>位</strong></p>
       <% end %>
       <div class = "rank-post-image">
         <%= attachment_image_tag post, :image, size: "250x200", fallback: "no_image.png" %>
         <%= link_to "詳細へ", post_path(post.id), class: "px-3 py-2 rank-show-link" %>
       </div>
       <div class = "row">
-        <p class = "col-4 pr-0 my-0">タイトル:</p>
+        <p class = "col-4 pr-0 my-0"><strong>タイトル</strong></p>
         <p class = "col-8 pl-0 pr-3 my-0"><%= post.title %></p>
       </div>
       <div class = "row">
-        <p class = "col-4 pr-0 my-0">いいね数:</p>
+        <p class = "col-4 pr-0 my-0"><strong>いいね数</strong></p>
         <p class = "col-8 px-0 my-0"><%= post.favorites.count %></p>
       </div>
       <div class = "row">
-        <p class = "col-4 pr-0">投稿者:</p>
+        <p class = "col-4 pr-0"><strong>投稿者</strong></p>
         <p class = "col-8 px-0"><%= post.user.name %></p>
       </div>
     </div>

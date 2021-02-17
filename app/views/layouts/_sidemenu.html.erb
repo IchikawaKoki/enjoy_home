@@ -1,54 +1,54 @@
 <div class = "container side-bar">
   <% if user_signed_in? %>
-    <div class = "row menu">
-      <%= link_to user_path(current_user.id) do %>
-        <h2>マイページ</h2>
+    <div class = "menu mx-auto mt-4">
+      <%= link_to user_path(current_user.id), class: "text-center" do %>
+        <h2 class = "menu-text">マイページ</h2>
       <% end %>
     </div>
-    <div class = "row menu">
-      <%= link_to posts_path do %>
-        <h2>投稿一覧</h2>
+    <div class = "menu mx-auto mt-4">
+      <%= link_to posts_path, class: "text-center" do %>
+        <h2 class = "menu-text">投稿一覧</h2>
       <% end %>
     </div>
-    <div class = "row menu">
-      <%= link_to new_post_path do %>
-        <h2>新規投稿</h2>
+    <div class = "menu mx-auto mt-4">
+      <%= link_to new_post_path, class: "text-center" do %>
+        <h2 class = "menu-text">新規投稿</h2>
       <% end %>
     </div>
-    <div class = "row menu">
-      <%= link_to rooms_path do %>
-        <h2>チャット</h2>
+    <div class = "menu mx-auto mt-4">
+      <%= link_to rooms_path, class: "text-center" do %>
+        <h2 class = "menu-text">チャット</h2>
       <% end %>
     </div>
-    <div class = "row menu">
-      <%= link_to inquiries_new_path do %>
-        <h2>お問い合わせ</h2>
+    <div class = "menu mx-auto mt-4">
+      <%= link_to inquiries_new_path, class: "text-center" do %>
+        <h2 class = "menu-text">お問い合わせ</h2>
       <% end %>
     </div>
-    <div class = "row menu">
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <h2>ログアウト</h2>
+    <div class = "menu mx-auto mt-4">
+      <%= link_to destroy_user_session_path, method: :delete, class: "text-center" do %>
+        <h2 class = "menu-text">ログアウト</h2>
       <% end %>
     </div>
   <% else %>
-    <div class = "row menu">
-      <%= link_to root_path do %>
-        <h2>トップ</h2>
+    <div class = "menu mx-auto mt-4">
+      <%= link_to root_path, class: "text-center" do %>
+        <h2 class = "menu-text">トップ</h2>
       <% end %>
     </div>
-    <div class = "row menu">
-      <%= link_to homes_about_path do %>
-        <h2>使い方</h2>
+    <div class = "menu mx-auto mt-4">
+      <%= link_to homes_about_path, class: "text-center" do %>
+        <h2 class = "menu-text">使い方</h2>
       <% end %>
     </div>
-    <div class = "row menu">
-      <%= link_to new_user_registration_path do %>
-        <h2>新規登録</h2>
+    <div class = "menu mx-auto mt-4">
+      <%= link_to new_user_registration_path, class: "text-center" do %>
+        <h2 class = "menu-text">新規登録</h2>
       <% end %>
     </div>
-    <div class = "row menu">
-      <%= link_to new_user_session_path do %>
-        <h2>ログイン</h2>
+    <div class = "menu mx-auto mt-4">
+      <%= link_to new_user_session_path, class: "text-center" do %>
+        <h2 class = "menu-text">ログイン</h2>
       <% end %>
     </div>
   <% end %>

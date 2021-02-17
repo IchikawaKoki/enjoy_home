@@ -14,15 +14,15 @@
         <%= attachment_image_tag @user, :profile_image, fallback: "no_image.png", class: "w-100" %>
       </div>
       <div class = "row mt-2">
-        <h6 class = "col-4 text-bg-green"><strong>名前</strong></h6>
+        <h6 class = "col-4"><strong>名前</strong></h6>
         <p class = "col-8"><%= @user.name %></p>
       </div>
       <div class = "row mt-3">
-        <h6 class = "col-4 text-bg-green"><strong>自己紹介</strong></h6>
+        <h6 class = "col-4"><strong>自己紹介</strong></h6>
         <p class = "col-8 white-space introduction-field"><%= @user.introduction %></p>
       </div>
       <div class = "row mt-3">
-        <h6 class = "col-4 text-bg-green"><strong>いいねした投稿</strong></h6>
+        <h6 class = "col-4"><strong>いいねした投稿</strong></h6>
         <p class = "col-8">
           <% if @user == current_user %>
             <span id = "current_user-favorite"><%= current_user.favorite_posts.count %></span>
@@ -32,11 +32,11 @@
         </p>
       </div>
       <div class = "row mt-3">
-        <h6 class = "col-4 text-bg-green"><strong>フォロー</strong></h6>
+        <h6 class = "col-4"><strong>フォロー</strong></h6>
         <p class = "col-8"><%= link_to @user.followings.count, user_followings_path(@user.id) %></p>
       </div>
       <div class = "row mt-3">
-        <h6 class = "col-4 text-bg-green"><strong>フォロワー</strong></h6>
+        <h6 class = "col-4"><strong>フォロワー</strong></h6>
         <p class = "col-8 followers"><%= link_to @user.followers.count, user_followers_path(@user.id) %></p>
       </div>
       <div class = "row mt-3">
