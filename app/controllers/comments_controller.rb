@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_user, only: [:destroy]
 
   def create
     @post = Post.find(params[:post_id])
@@ -22,5 +23,13 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def correct_user
+    @post = Post.find(params[:post_id])
+    comment = @post.comments.find(params[:id])
+    if comment.user != current_user
+      redirect_to post_path(@post.id)
+    end
   end
 end

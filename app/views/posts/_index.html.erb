@@ -6,15 +6,15 @@
         <%= link_to "詳細へ", post_path(post.id), class: "px-3 py-2 post-show-link" %>
       </div>
       <div class = "row pl-1">
-        <p class = "col-4 mb-0">投稿者:</p>
+        <p class = "col-4 mb-0"><strong>投稿者</strong></p>
         <p class = "col-8 mb-0"><%= link_to post.user.name, user_path(post.user.id) %></p>
       </div>
       <div class = "row pl-1">
-        <p class = "col-4 mb-0">タイトル:</p>
+        <p class = "col-4 mb-0"><strong>タイトル</strong></p>
         <p class = "col-8 mb-0"><%= post.title %></p>
       </div>
       <div class = "row pl-1">
-        <p class = "col-4 mb-0">タグ:</p>
+        <p class = "col-4 mb-0"><strong>タグ</strong></p>
         <p class = "col-7 mb-0 tag-content mr-1">
           <% post.tags.each do |tag| %>
             <%= link_to tag.name, tag_search_path(tag.id), class: "tag mx-1" %>
