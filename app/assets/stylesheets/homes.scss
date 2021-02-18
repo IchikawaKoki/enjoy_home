@@ -23,12 +23,21 @@
   height: 150px;
 }
 
-.top-bottom-image {
-  height: 150px;
+.top-bottom-image1 {
+  background-image: image-url("cooking.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.top-bottom-image2 {
+  background-image: image-url("pc_chat.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .top-bottom-content {
   box-shadow: 1px 0px 40px #5BFF7F inset;
   border-radius: 15px;
   height: 250px;
+  overflow: hidden;
 }

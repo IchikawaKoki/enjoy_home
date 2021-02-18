@@ -14,15 +14,15 @@
     </div>
     <div class = "col-6 mt-3 user-show-text">
       <div class = "row mt-3">
-        <h6 class = "col-3"><strong>タイトル:</strong></h6>
+        <h6 class = "col-3"><strong>タイトル</strong></h6>
         <p class = "col-9"><%= @post.title %></p>
       </div>
       <div class = "row mt-3">
-        <h6 class = "col-3"><strong>説明:</strong></h6>
+        <h6 class = "col-3"><strong>説明</strong></h6>
         <p class = "col-9 white-space description-field"><%= @post.description %></p>
       </div>
       <div class = "row mt-3">
-        <h6 class = "col-3"><strong>タグ:</strong></h6>
+        <h6 class = "col-3"><strong>タグ</strong></h6>
         <p class = "col-9">
           <% @post.tags.each do |tag| %>
           <%= link_to tag.name, tag_search_path(tag.id), class: "tag" %>
@@ -30,11 +30,11 @@
         </p>
       </div>
       <div class = "row mt-3">
-        <h6 class = "col-3"><strong>投稿日:</strong></h6>
+        <h6 class = "col-3"><strong>投稿日</strong></h6>
         <p class = "col-9"><%= @post.created_at.strftime('%Y年%m月%d日') %></p>
       </div>
       <div class = "row mt-3">
-        <h6 class = "col-3"><strong>投稿者:</strong></h6>
+        <h6 class = "col-3"><strong>投稿者</strong></h6>
         <p class = "col-9">
           <%= link_to user_path(@post.user.id) do %>
             <%= @post.user.name %>
@@ -53,7 +53,7 @@
     </div>
   </div>
   <div class = "row d-flex flex-column w-50 mx-auto mt-5">
-    <h4 class = "text-center">コメント</h4>
+    <h4 class = "text-center underline-green">コメント</h4>
     <div class = "comments w-100">
       <%= render 'comments/comment', post: @post %>
     </div>

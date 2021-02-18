@@ -10,7 +10,7 @@
   </div>
   <div class = "row mx-4 pt-3">
     <div class = "col-3 left-post">
-      <h5 class = "text-center tag-title">タグ一覧</h5>
+      <h5 class = "text-center underline-green">タグ一覧</h5>
       <div class = "row d-flex flex-column tags-field">
         <div class = "d-flex flex-wrap mx-auto">
           <% @tags.each do |tag| %>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class = "row d-flex flex-column">
-        <h5 class = "text-center ranking-title mx-3">いいねランキング</h5>
+        <h5 class = "text-center underline-green mx-3">いいねランキング</h5>
         <%= render 'posts/ranking', ranking: @ranking %>
       </div>
     </div>
